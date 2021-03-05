@@ -11,12 +11,10 @@
   "homepage": "https://github.com/zsirfs/nnwa#readme",
   "license": "ISC",
   "main": "es/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
-    "lib"
+    "es/**",
+    "package.json",
+    "store.js"
   ],
   "publishConfig": {
     "registry": "https://registry.npm.alibaba-inc.com/",

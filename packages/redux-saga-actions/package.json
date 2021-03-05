@@ -1,0 +1,52 @@
+{
+  "name": "@nnwa/redux-saga-actions",
+  "version": "0.1.1",
+  "description": "use declare model to inject data flow",
+  "keywords": [
+    "redux",
+    "redux-saga",
+    "redux-model"
+  ],
+  "author": "zsirfs <zhenglfsir@gmail.com>",
+  "homepage": "https://github.com/zsirfs/nnwa#readme",
+  "license": "ISC",
+  "main": "es/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com/",
+    "directory": "es"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zsirfs/nnwa.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "gulp build"
+  },
+  "bugs": {
+    "url": "https://github.com/zsirfs/nnwa/issues"
+  },
+  "peerDependencies": {
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@types/redux-saga": "^0.10.5",
+    "fs-extra": "^9.1.0",
+    "gulp": "^4.0.2",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "rollup": "^2.40.0",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "typescript": "^4.2.2"
+  },
+  "private": true
+}

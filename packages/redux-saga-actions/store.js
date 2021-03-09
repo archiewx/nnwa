@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createSaga, createPromiseMiddleware } from './es';
 
-export const genStore = (ms) => {
+const genStore = (ms) => {
   const saga = createSaga(ms);
   const composeEnhancers =
     typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -32,3 +32,5 @@ export const genStore = (ms) => {
   const store = configStore();
   return store;
 };
+
+export default genStore;

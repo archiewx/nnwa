@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { combineReducers } from 'redux';
 import { all, takeEvery } from 'redux-saga/effects';
 
@@ -24,6 +25,14 @@ function getState(ms) {
     }, {});
     return allState;
 }
+function genUseReduxState() {
+    return function (cb) {
+        return useSelector(cb ? cb : function (state) { return state; });
+    };
+}
+var useReduxDispatch = function () {
+    return useDispatch();
+};
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -170,5 +179,5 @@ var createPromiseMiddleware = function (_a) {
     }; }; };
 };
 
-export { createActions, createPromiseMiddleware, createSaga, getState };
+export { createActions, createPromiseMiddleware, createSaga, genUseReduxState, getState, useReduxDispatch };
 //# sourceMappingURL=index.js.map

@@ -14,7 +14,7 @@ gulp.task('build', async () => {
       pluginResolve({ moduleDirectories: ['node_modules'] }),
       pluginTS(),
     ],
-    external: (id) => /(^redux)|(^redux-saga)/.test(id),
+    external: (id) => /(^redux)|(^react-redux)|(^redux-saga)/.test(id),
   });
   return await bundle.write({
     file: 'es/index.js',

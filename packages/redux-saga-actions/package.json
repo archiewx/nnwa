@@ -13,6 +13,8 @@
   "main": "es/index.js",
   "files": [
     "es/**",
+    "global.d.ts",
+    "README.md",
     "package.json",
     "store.js"
   ],

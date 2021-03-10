@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { combineReducers } from 'redux';
+import * as effects from 'redux-saga/effects';
 import { all, takeEvery } from 'redux-saga/effects';
+import { combineReducers } from 'redux';
 
 function createActions(m) {
     var keys = Object.keys(m.effects || {}).concat(Object.keys(m.reducers || {}));
@@ -166,6 +167,7 @@ function createSaga(ms) {
     saga.getReducers = getReducers;
     return saga;
 }
+var io = effects;
 
 var createPromiseMiddleware = function (_a) {
     var effects = _a.effects;
@@ -179,5 +181,5 @@ var createPromiseMiddleware = function (_a) {
     }; }; };
 };
 
-export { createActions, createPromiseMiddleware, createSaga, genUseReduxState, getState, useReduxDispatch };
+export { createActions, createPromiseMiddleware, createSaga, genUseReduxState, getState, io, useReduxDispatch };
 //# sourceMappingURL=index.js.map

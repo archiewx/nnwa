@@ -1,3 +1,4 @@
+import * as effects from 'redux-saga/effects';
 import { IModel } from './action';
 import { combineReducers } from 'redux';
 import { all, takeEvery } from 'redux-saga/effects';
@@ -72,3 +73,5 @@ export function createSaga<M extends IModel<any>, MS extends Record<string, M>>(
 
   return saga;
 }
+
+export const io = effects;

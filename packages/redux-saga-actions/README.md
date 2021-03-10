@@ -8,6 +8,26 @@
 $ yarn add @nnwa/redux-saga-actions
 ```
 
+<br />
+### 真实使用
+
+```ts
+// store.js
+import {
+  createSaga,
+  GenStateType,
+  genUseReduxState,
+  getState,
+} from '@nnwa/redux-saga-actions';
+import genStore from '@nnwa/redux-saga-actions/store';
+import * as models from './models';
+
+export const store = genStore(models);
+const state = getState(models);
+export type IState = typeof state;
+export const useReduxState = genUseReduxState<IState>();
+```
+
 ## 接口使用
 
 <br />

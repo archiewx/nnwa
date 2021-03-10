@@ -14,8 +14,6 @@ export function getState<
   return allState;
 }
 
-export type GenStateType<Func extends typeof getState> = ReturnType<Func>;
-
 export function genUseReduxState<S>() {
   return <T extends any = S>(cb?: (state: S) => T): T extends S ? S : T => {
     return useSelector<S, T>(cb ? cb : (state) => state as any) as any;

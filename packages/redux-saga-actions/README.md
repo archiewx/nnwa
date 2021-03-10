@@ -1,11 +1,33 @@
-# `@nnwa/redux-saga-actions`
+# @nnwa/redux-saga-actions
 
-> TODO: description
+> 帮助 react 应用更容易使用数据流
 
-## Usage
+## 使用
 
+```bash
+$ yarn add @nnwa/redux-saga-actions
 ```
-const reduxSagaActions = require('@nnwa/redux-saga-actions');
 
-// TODO: DEMONSTRATE API
+## 接口使用
+
+<br />
+
+### createActions
+
+<br />
+符合 `IModel` 定义可以自动生成 action 的模板
+
+```ts
+const model = {
+  namespace: 'user',
+  state: {},
+  reducers: {},
+  effects: {
+    fetchUser() {},
+  },
+};
+
+const actions = createActions(model);
+
+actions.fetchUser(); // { type: 'user/fetchUser' }
 ```

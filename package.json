@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@types/react-redux": "^7.1.16",
+    "lerna": "^4.0.0",
+    "react-redux": "^7.2.2"
   },
   "scripts": {
     "init": "lerna run install",

@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Action } from 'redux';
 import { IModel } from './action';
 
 export function getState<
@@ -13,3 +15,13 @@ export function getState<
 }
 
 export type GenStateType<Func extends typeof getState> = ReturnType<Func>;
+
+export function genUseReduxState<S>() {
+  return <T extends any = S>(cb?: (state: S) => T): T extends S ? S : T => {
+    return useSelector<S, T>(cb ? cb : (state) => state as any) as any;
+  };
+}
+
+export const useReduxDispatch = <T = any, P = any>() => {
+  return (useDispatch() as any) as (action: Action<P>) => PromiseLike<T>;
+};

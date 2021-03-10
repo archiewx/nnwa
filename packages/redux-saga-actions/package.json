@@ -15,7 +15,6 @@
     "es/**",
     "global.d.ts",
     "README.md",
-    "package.json",
     "store.js"
   ],
   "publishConfig": {

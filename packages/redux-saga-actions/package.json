@@ -10,12 +10,16 @@
   "author": "zsirfs <zhenglfsir@gmail.com>",
   "homepage": "https://github.com/zsirfs/nnwa#readme",
   "license": "ISC",
-  "main": "es/index.js",
+  "main": "./index.js",
+  "module": "./index.js",
   "files": [
     "es/**",
     "global.d.ts",
     "README.md",
+    "index.js",
+    "index.d.ts",
     "store.js",
+    "store.d.ts",
     "package.json"
   ],
   "publishConfig": {

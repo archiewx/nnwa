@@ -15,7 +15,8 @@
     "es/**",
     "global.d.ts",
     "README.md",
-    "store.js"
+    "store.js",
+    "package.json"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

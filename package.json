@@ -4,6 +4,11 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "command": {
+    "publish": {
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
   "scripts": {
     "init": "lerna run install",
     "build": "lerna run build"

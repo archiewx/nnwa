@@ -8,7 +8,7 @@
     "redux-model"
   ],
   "author": "zsirfs <zhenglfsir@gmail.com>",
-  "homepage": "https://github.com/zsirfs/nnwa#readme",
+  "homepage": "https://github.com/zsirfs/nnwa/redux-saga-actions#readme",
   "license": "ISC",
   "main": "./index.js",
   "module": "./index.js",

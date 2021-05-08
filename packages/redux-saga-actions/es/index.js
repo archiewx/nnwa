@@ -181,5 +181,11 @@ var createPromiseMiddleware = function (_a) {
     }; }; };
 };
 
-export { createActions, createPromiseMiddleware, createSaga, genUseReduxState, getState, io, useReduxDispatch };
+function exports(ms) {
+    var state = getState(ms);
+    var useReduxState = genUseReduxState();
+    return { state: state, useReduxState: useReduxState };
+}
+
+export { createActions, createPromiseMiddleware, createSaga, exports, genUseReduxState, getState, io, useReduxDispatch };
 //# sourceMappingURL=index.js.map

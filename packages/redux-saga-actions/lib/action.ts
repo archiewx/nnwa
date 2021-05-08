@@ -1,5 +1,3 @@
-;
-
 export interface IActionWithPayload<T = any> {
   type: string;
   payload: T;
@@ -8,9 +6,16 @@ export interface IActionWithPayload<T = any> {
 export interface IEffect<P = any> {
   (action?: IActionWithPayload<P>, io?: any): any;
 }
+export interface IEffectWithoutAction {
+  (): any;
+}
 export interface IReducer<S = any, P = any> {
   (state: S, action: IActionWithPayload<P>): S;
 }
+export interface IReducerWithoutAction<S = any> {
+  (state: S): S;
+}
+
 export interface IModel<S = any> {
   namespace: string;
   state: S;
@@ -18,12 +23,18 @@ export interface IModel<S = any> {
   reducers: Record<string, IReducer<S>>;
 }
 
-export type ActionKey<M extends IModel> = keyof M['effects'] & keyof M['reducers'];
+export type ActionKey<M extends IModel> = keyof M['effects'] &
+  keyof M['reducers'];
 
-export type Payload<M extends IModel, K extends ActionKey<M>> = M['effects'][K] extends IEffect<
-  infer P
->
+export type Payload<
+  M extends IModel,
+  K extends ActionKey<M>
+> = M['effects'][K] extends IEffectWithoutAction
+  ? void
+  : M['effects'][K] extends IEffect<infer P>
   ? P
+  : M['reducers'][K] extends IReducerWithoutAction
+  ? void
   : M['reducers'][K] extends IReducer<any, infer P>
   ? P
   : K extends 'setState'
@@ -32,16 +43,16 @@ export type Payload<M extends IModel, K extends ActionKey<M>> = M['effects'][K] 
   ? void
   : never;
 
-export type DispatchAction<M extends IModel, K extends ActionKey<M>> = Payload<M, K> extends Record<
-  string,
-  any
->
+export type DispatchAction<M extends IModel, K extends ActionKey<M>> = Payload<
+  M,
+  K
+> extends Record<string, any>
   ? (payload: Payload<M, K>) => { type: K; payload: Payload<M, K> }
   : () => { type: K };
 
 export function createActions<M extends IModel>(m: M) {
   const keys: Array<ActionKey<M>> = Object.keys(m.effects || {}).concat(
-    Object.keys(m.reducers || {}),
+    Object.keys(m.reducers || {})
   );
 
   type Action = {

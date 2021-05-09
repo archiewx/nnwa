@@ -1,9 +1,4 @@
 export * from './es';
-import { generate } from './es';
+export { default as genStore } from './store';
+export { wrapper } from './gen'
 
-export function wrapper(ms) {
-  return {
-    store: genStore(ms),
-    ...generate(ms),
-  };
-}

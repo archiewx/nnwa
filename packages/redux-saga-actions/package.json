@@ -1,6 +1,6 @@
 {
   "name": "@nnwa/redux-saga-actions",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "use declare model to inject data flow",
   "keywords": [
     "redux",

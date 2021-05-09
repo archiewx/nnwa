@@ -20,6 +20,8 @@
     "index.d.ts",
     "store.js",
     "store.d.ts",
+    "gen.js",
+    "gen.d.ts",
     "package.json"
   ],
   "publishConfig": {

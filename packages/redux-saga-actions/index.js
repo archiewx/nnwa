@@ -1,9 +1,9 @@
 export * from './es';
-import { exports } from './es';
+import { generate } from './es';
 
 export function wrapper(ms) {
   return {
     store: genStore(ms),
-    ...exports(ms),
+    ...generate(ms),
   };
 }

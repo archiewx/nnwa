@@ -1,4 +1,5 @@
 import { generate } from './es';
+import genStore from './store';
 
 export function wrapper(ms) {
   return {

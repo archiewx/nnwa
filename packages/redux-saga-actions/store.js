@@ -16,7 +16,7 @@ const genStore = (ms) => {
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [
     // thunkMiddleware
-    createPromiseMiddleware(saga.effects),
+    createPromiseMiddleware({ effects: saga.effects }),
     sagaMiddleware,
   ];
 

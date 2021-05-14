@@ -31,11 +31,11 @@ export function createSaga<M extends IModel<any>, MS extends Record<string, M>>(
       }, state);
     return (state = initialState, action: any) => {
       if (action.type === `${namespace}/setState`) {
-        return Object.assign(state, action.payload);
+        return { ...state, ...action.payload };
       }
 
       if (action.type === `${namespace}/reset`) {
-        return Object.assign(state, initialState);
+        return { ...state, ...initialState };
       }
       return reducer(state, action);
     };

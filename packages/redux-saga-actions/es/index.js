@@ -116,10 +116,10 @@ function createSaga(ms) {
         return function (state, action) {
             if (state === void 0) { state = initialState; }
             if (action.type === namespace + "/setState") {
-                return Object.assign(state, action.payload);
+                return __assign(__assign({}, state), action.payload);
             }
             if (action.type === namespace + "/reset") {
-                return Object.assign(state, initialState);
+                return __assign(__assign({}, state), initialState);
             }
             return reducer(state, action);
         };

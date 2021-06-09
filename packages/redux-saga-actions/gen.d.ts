@@ -1,6 +1,9 @@
 import { Store } from 'redux';
 import { IModel } from './es';
 
+export interface WrapperOptions {
+  plugins: any[];
+}
 export interface IWrapperExport<
   T extends Record<string, IModel> = Record<string, IModel>
 > {
@@ -14,4 +17,4 @@ export interface IWrapperExport<
 }
 export function wrapper<
   T extends Record<string, IModel> = Record<string, IModel>
->(ms: T): IWrapperExport<T>;
+>(ms: T, options?: WrapperOptions): IWrapperExport<T>;

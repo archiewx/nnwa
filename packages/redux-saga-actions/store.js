@@ -2,8 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createSaga, createPromiseMiddleware, getState } from './es';
 
-
-const genStore = (ms) => {
+const genStore = (ms, plugins = []) => {
   const saga = createSaga(ms);
 
   const composeEnhancers =
@@ -15,6 +14,7 @@ const genStore = (ms) => {
 
   const sagaMiddleware = createSagaMiddleware();
   const middlewares = [
+    ...plugins,
     // thunkMiddleware
     createPromiseMiddleware({ effects: saga.effects }),
     sagaMiddleware,
@@ -32,7 +32,7 @@ const genStore = (ms) => {
   }
 
   const store = configStore();
-  return store
+  return store;
 };
 
 export default genStore;
